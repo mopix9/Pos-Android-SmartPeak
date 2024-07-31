@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.topkishmopix.peak.balance.viewmodel.BalanceViewModel" />
+    </data>
+
+    <FrameLayout
+
+        android:background="@android:color/transparent"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@color/back_gray">
+
+            <ImageButton
+                android:id="@+id/back"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:background="@color/transparent"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_back" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_marginRight="18dp"
+                android:fontFamily="@font/iransansbold"
+                android:text="مانده حساب(کارمزد 1206 ریال)"
+                android:textColor="@color/dark"
+                android:textSize="@dimen/medium_titre" />
+
+            <TextView
+                android:id="@+id/subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/back"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="18dp"
+                android:fontFamily="@font/iransansbold"
+                android:text="ورود رمز کارت (ورود رمز الزاما توسط مشتری)"
+                android:textColor="@color/slate"
+                android:textSize="@dimen/title" />
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="150dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/iransansbold"
+                    android:gravity="center"
+                    android:text="هشدار!"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/large_titre" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/iransansbold"
+                    android:gravity="center"
+                    android:text="لطفا رمز کارت را خودتان وارد کنید"
+                    android:textColor="@color/slate"
+                    android:textSize="@dimen/titre" />
+
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:id="@+id/bottom"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal"
+                android:layout_alignParentBottom="true">
+
+                <Button
+                    android:visibility="gone"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/iransansbold"
+                    android:textSize="@dimen/titre"
+                    android:textColor="@color/white"
+                    android:id="@+id/confirm"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/green_background"
+                    android:text="ورود رمز"
+                    android:paddingLeft="20dp"
+                    android:layout_weight="0.65"/>
+
+                <Button
+                    android:visibility="gone"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/iransansbold"
+                    android:textSize="@dimen/titre"
+                    android:id="@+id/cancel"
+                    android:textColor="@color/white"
+                    android:text="لغو عملیات"
+                    android:layout_weight="0.35"/>
+
+                <TextView
+                    android:id="@+id/main_tv_display"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </FrameLayout>
+</layout>

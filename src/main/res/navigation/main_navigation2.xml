@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/swipeFragment">
+
+    <fragment
+        android:id="@+id/swipeFragment"
+        android:name="com.topkishmopix.peak.main.view.view.SwipeFragment"
+        android:label="SwipeFragment" >
+        <action
+            android:id="@+id/action_swipeFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_swipeFragment_to_buyOptionsFragment"
+            app:destination="@id/buyOptionsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.topkishmopix.peak.setting.SettingsFragment"
+        android:label="SettingsFragment" >
+        <action
+            android:id="@+id/action_settingsFragment_to_passwordFragment"
+            app:destination="@id/passwordFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_swipeFragment"
+            app:destination="@id/swipeFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_buyerFragment"
+            app:destination="@id/buyerFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_codeRequestFragment"
+            app:destination="@id/codeRequestFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_shiftFragment"
+            app:destination="@id/shiftFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/managementFragment"
+        android:name="com.topkishmopix.peak.setting.management.ManagementFragment"
+        android:label="ManagementFragment" >
+        <action
+            android:id="@+id/action_managementFragment_to_configurationFragment"
+            app:destination="@id/configurationFragment" />
+        <action
+            android:id="@+id/action_managementFragment_to_terminalFragment"
+            app:destination="@id/terminalFragment" />
+        <action
+            android:id="@+id/action_managementFragment_to_merchantPasswordFragment"
+            app:destination="@id/merchantPasswordFragment" />
+        <action
+            android:id="@+id/action_managementFragment_to_connectivityFragment"
+            app:destination="@id/connectivityFragment" />
+        <action
+            app:popUpTo="@+id/settingsFragment"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_managementFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+      <!--  <action
+            android:id="@+id/action_managementFragment_to_selectReciptTypeToPrintFragment"
+            app:destination="@id/selectReciptTypeToPrintFragment" />-->
+    </fragment>
+    <fragment
+        android:id="@+id/configurationFragment"
+        android:name="com.topkishmopix.peak.setting.management.ConfigurationFragment"
+        android:label="ConfigurationFragment" >
+        <action
+            android:id="@+id/action_configurationFragment_to_logonFragment"
+            app:destination="@id/logonFragment" />
+        <action
+            android:id="@+id/action_configurationFragment_to_getInfoFragment"
+            app:destination="@id/getInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/logonFragment"
+        android:name="com.topkishmopix.peak.setting.management.LogonFragment"
+        android:label="LogonFragment" />
+    <fragment
+        android:id="@+id/getInfoFragment"
+        android:name="com.topkishmopix.peak.setting.shop.GetInfoFragment"
+        android:label="GetInfoFragment" />
+    <fragment
+        android:id="@+id/buyOptionsFragment"
+        android:name="com.topkishmopix.peak.main.view.view.BuyOptionsFragment"
+        android:label="BuyOptionsFragment" >
+        <action
+            android:id="@+id/action_buyOptionsFragment_to_buyFragment"
+            app:destination="@id/buyFragment" />
+        <action
+            android:id="@+id/action_buyOptionsFragment_to_billFragment"
+            app:destination="@id/billFragment" />
+        <action
+            android:id="@+id/action_buyOptionsFragment_to_balanceFragment"
+            app:destination="@id/balanceFragment" />
+        <action
+            android:id="@+id/action_buyOptionsFragment_to_chargeFragment"
+            app:destination="@id/chargeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/buyFragment"
+        android:name="com.topkishmopix.peak.buy.BuyFragment"
+        android:label="BuyFragment" >
+        <action
+            android:id="@+id/action_buyFragment_to_swipeFragment"
+            app:destination="@id/swipeFragment"
+            app:popUpTo="@+id/swipeFragment"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_buyFragment_to_failFragment"
+            app:destination="@id/failFragment" />
+        <action
+            android:id="@+id/action_buyFragment_to_buySuccessFragment"
+            app:destination="@id/buySuccessFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/failFragment"
+        android:name="com.topkishmopix.peak.main.view.view.FailFragment"
+        android:label="FailFragment" >
+        <action
+            android:id="@+id/action_failFragment_to_swipeFragment"
+            app:popUpTo="@+id/swipeFragment"
+            app:popUpToInclusive="true"
+            app:destination="@id/swipeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/buySuccessFragment"
+        android:name="com.topkishmopix.peak.buy.BuySuccessFragment"
+        android:label="BuySuccessFragment" >
+        <action
+            android:id="@+id/action_buySuccessFragment_to_swipeFragment"
+            app:popUpToInclusive="true"
+            app:popUpTo="@+id/swipeFragment"
+            app:destination="@id/swipeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shopFragment"
+        android:name="com.topkishmopix.peak.setting.shop.ShopFragment"
+        android:label="ShopFragment" >
+        <action
+            android:id="@+id/action_shopFragment_to_reportsFragment"
+            app:destination="@id/reportsFragment" />
+        <action
+            android:id="@+id/action_shopFragment_to_sellerRollRequestFragment"
+            app:destination="@id/sellerRollRequestFragment" />
+        <action
+            android:id="@+id/action_shopFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_shopFragment_to_createUserFragment"
+            app:destination="@id/createUserFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/reportsFragment"
+        android:name="com.topkishmopix.peak.setting.shop.report.ReportsFragment"
+        android:label="ReportsFragment" >
+        <action
+            android:id="@+id/action_reportsFragment_to_printReceiptFragment"
+            app:destination="@id/printReceiptFragment" />
+        <action
+            android:id="@+id/action_reportsFragment_to_totalReportFragment"
+            app:destination="@id/totalReportFragment" />
+        <action
+            android:id="@+id/action_reportsFragment_to_transactionDetailsFragment"
+            app:destination="@id/transactionDetailsFragment" />
+        <action
+            android:id="@+id/action_reportsFragment_to_totalReportByUserIdFragment"
+            app:destination="@id/totalReportByUserIdFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/printReceiptFragment"
+        android:name="com.topkishmopix.peak.setting.shop.report.PrintReceiptFragment"
+        android:label="PrintReceiptFragment" >
+        <action
+            android:id="@+id/action_printReceiptFragment_to_searchReceiptFragment"
+            app:destination="@id/searchReceiptFragment" />
+        <action
+            android:id="@+id/action_printReceiptFragment_to_showReceiptFragment"
+            app:destination="@id/showReceiptFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchReceiptFragment"
+        android:name="com.topkishmopix.peak.setting.shop.report.SearchReceiptFragment"
+        android:label="SearchReceiptFragment" >
+        <action
+            android:id="@+id/action_searchReceiptFragment_to_searchTransactionFragment"
+            app:destination="@id/searchTransactionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/showReceiptFragment"
+        android:name="com.topkishmopix.peak.setting.shop.report.ShowReceiptFragment"
+        android:label="ShowReceiptFragment" />
+    <dialog
+        android:id="@+id/searchTransactionFragment"
+        android:name="com.topkishmopix.peak.setting.shop.report.SearchTransactionFragment"
+        android:label="SearchTransactionFragment" >
+        <action
+            android:id="@+id/action_searchTransactionFragment_to_showReceiptFragment"
+            app:destination="@id/showReceiptFragment" />
+    </dialog>
+    <fragment
+        android:id="@+id/totalReportFragment"
+        android:name="com.topkishmopix.peak.setting.shop.report.TotalReportFragment"
+        android:label="TotalReportFragment" />
+    <fragment
+        android:id="@+id/transactionDetailsFragment"
+        android:name="com.topkishmopix.peak.setting.shop.report.TransactionDetailsFragment"
+        android:label="TransactionDetailsFragment" >
+        <action
+            android:id="@+id/action_transactionDetailsFragment_to_transactionListFragment"
+            app:destination="@id/transactionListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/transactionListFragment"
+        android:name="com.topkishmopix.peak.setting.shop.report.TransactionListFragment"
+        android:label="TransactionListFragment" />
+    <fragment
+        android:id="@+id/billDetailFragment"
+        android:name="com.topkishmopix.peak.bill.BillDetailFragment"
+        android:label="BillDetailFragment" >
+        <action
+            android:id="@+id/action_billDetailFragment_to_billSuccessFragment"
+            app:destination="@id/billSuccessFragment" />
+        <action
+            app:popUpTo="@+id/swipeFragment"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_billDetailFragment_to_swipeFragment"
+            app:destination="@id/swipeFragment" />
+        <action
+            android:id="@+id/action_billDetailFragment_to_failFragment"
+            app:destination="@id/failFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/billFragment"
+        android:name="com.topkishmopix.peak.bill.BillFragment"
+        android:label="BillFragment" >
+        <action
+            android:id="@+id/action_billFragment_to_billDetailFragment"
+            app:destination="@id/billDetailFragment" />
+        <action
+            app:popUpTo="@+id/swipeFragment"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_billFragment_to_swipeFragment"
+            app:destination="@id/swipeFragment" />
+        <action
+            android:id="@+id/action_billFragment_to_scannerFragment"
+            app:destination="@id/scannerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/billSuccessFragment"
+        android:name="com.topkishmopix.peak.bill.BillSuccessFragment"
+        android:label="BillSuccessFragment" >
+        <action
+            app:popUpToInclusive="true"
+            app:popUpTo="@+id/swipeFragment"
+            android:id="@+id/action_billSuccessFragment_to_swipeFragment"
+            app:destination="@id/swipeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/scannerFragment"
+        android:name="com.topkishmopix.peak.bill.ScannerFragment"
+        android:label="fragment_scanner" />
+    <fragment
+        android:id="@+id/balanceFragment"
+        android:name="com.topkishmopix.peak.balance.BalanceFragment"
+        android:label="BalanceFragment" >
+        <action
+            android:id="@+id/action_balanceFragment_to_balanceSuccessFragment"
+            app:destination="@id/balanceSuccessFragment" />
+        <action
+            app:popUpTo="@+id/swipeFragment"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_balanceFragment_to_swipeFragment"
+            app:destination="@id/swipeFragment" />
+        <action
+            android:id="@+id/action_balanceFragment_to_failFragment"
+            app:destination="@id/failFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/balanceSuccessFragment"
+        android:name="com.topkishmopix.peak.balance.BalanceSuccessFragment"
+        android:label="BalanceSuccessFragment" >
+        <action
+            app:popUpToInclusive="true"
+            app:popUpTo="@+id/swipeFragment"
+            android:id="@+id/action_balanceSuccessFragment_to_swipeFragment"
+            app:destination="@id/swipeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chargeAmountFragment"
+        android:name="com.topkishmopix.peak.charge.ChargeAmountFragment"
+        android:label="ChargeAmountFragment" />
+    <fragment
+        android:id="@+id/chargeFragment"
+        android:name="com.topkishmopix.peak.charge.ChargeFragment"
+        android:label="ChargeFragment" >
+        <action
+            android:id="@+id/action_chargeFragment_to_chargeAmountFragment"
+            app:destination="@id/chargeAmountFragment" />
+        <action
+            android:id="@+id/action_chargeFragment_to_chargeSuccessFragment"
+            app:destination="@id/chargeSuccessFragment" />
+        <action
+            app:popUpToInclusive="true"
+            app:popUpTo="@+id/swipeFragment"
+            android:id="@+id/action_chargeFragment_to_swipeFragment"
+            app:destination="@id/swipeFragment" />
+        <action
+            android:id="@+id/action_chargeFragment_self"
+            app:destination="@id/chargeFragment" />
+        <action
+            android:id="@+id/action_chargeFragment_to_failFragment"
+            app:destination="@id/failFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chargeSuccessFragment"
+        android:name="com.topkishmopix.peak.charge.ChargeSuccessFragment"
+        android:label="ChargeSuccessFragment" >
+        <action
+            app:popUpTo="@+id/swipeFragment"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_chargeSuccessFragment_to_swipeFragment"
+            app:destination="@id/swipeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sellerRollRequestFragment"
+        android:name="com.topkishmopix.peak.setting.shop.SellerRollRequestFragment"
+        android:label="SellerRollRequestFragment" />
+    <fragment
+        android:id="@+id/buyerFragment"
+        android:name="com.topkishmopix.peak.setting.buyer.BuyerFragment"
+        android:label="BuyerFragment" >
+        <action
+            android:id="@+id/action_buyerFragment_to_settlementFragment"
+            app:destination="@id/settlementFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settlementFragment"
+        android:name="com.topkishmopix.peak.setting.buyer.SettlementFragment"
+        android:label="SettlementFragment" />
+    <fragment
+        android:id="@+id/terminalFragment"
+        android:name="com.topkishmopix.peak.setting.management.TerminalFragment"
+        android:label="TerminalFragment" />
+    <fragment
+        android:id="@+id/merchantPasswordFragment"
+        android:name="com.topkishmopix.peak.setting.management.MerchantPasswordFragment"
+        android:label="MerchantPasswordFragment" />
+    <fragment
+        android:id="@+id/connectivityFragment"
+        android:name="com.topkishmopix.peak.setting.management.ConnectivityFragment"
+        android:label="ConnectivityFragment" >
+        <action
+            android:id="@+id/action_connectivityFragment_to_serverFragment"
+            app:destination="@id/serverFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/serverFragment"
+        android:name="com.topkishmopix.peak.setting.management.ServerFragment"
+        android:label="ServerFragment" />
+    <fragment
+        android:id="@+id/passwordFragment"
+        android:name="com.topkishmopix.peak.setting.PasswordFragment"
+        android:label="PasswordFragment" >
+        <action
+            android:id="@+id/action_passwordFragment_to_managementFragment"
+            app:destination="@id/managementFragment" />
+        <action
+            android:id="@+id/action_passwordFragment_to_shopFragment"
+            app:destination="@id/shopFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/reciptPrintSettingFragment"
+        android:name="com.topkishmopix.peak.setting.management.ReciptPrintSettingFragment"
+        android:label="ReciptPrintSetting" />
+    <fragment
+        android:id="@+id/selectReciptTypeToPrintFragment"
+        android:name="com.topkishmopix.peak.setting.management.SelectReciptTypeToPrintFragment"
+        android:label="SelectReciptTypeToPrintFragment" >
+        <action
+            android:id="@+id/action_selectReciptTypeToPrintFragment_to_firstReciptAndSecondReciptFragment"
+            app:destination="@id/firstReciptAndSecondReciptFragment" />
+        <action
+            android:id="@+id/action_selectReciptTypeToPrintFragment_to_reciptPrintSettingFragment"
+            app:destination="@id/reciptPrintSettingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/firstReciptAndSecondReciptFragment"
+        android:name="com.topkishmopix.peak.setting.management.FirstReciptAndSecondReciptFragment"
+        android:label="FirstReciptAndSecondReciptFragment" />
+
+    <fragment
+        android:id="@+id/shiftFragment"
+        android:name="com.topkishmopix.peak.setting.shop.ShiftFragment"
+        android:label="ShiftFragment" >
+        <action
+            android:id="@+id/action_shiftFragment_to_swipeFragment"
+            app:destination="@id/swipeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/codeRequestFragment"
+        android:name="com.topkishmopix.peak.setting.shop.CodeRequestFragment"
+        android:label="CodeRequestFragment" >
+        <action
+            android:id="@+id/action_codeRequestFragment_to_shiftFragment"
+            app:destination="@id/shiftFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createUserFragment"
+        android:name="com.topkishmopix.peak.setting.shop.CreateUserFragment"
+        android:label="CreateUserFragment" />
+    <fragment
+        android:id="@+id/totalReportByUserIdFragment"
+        android:name="com.topkishmopix.peak.setting.shop.report.TotalReportByUserIdFragment"
+        android:label="TotalReportByUserIdFragment" />
+</navigation>

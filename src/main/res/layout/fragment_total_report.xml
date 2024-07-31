@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray">
+
+        <RelativeLayout
+            android:paddingRight="20dp"
+            android:id="@+id/top_rtl"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:background="@color/back_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/back"
+                android:src="@drawable/ic_back"
+                android:layout_alignParentLeft="true"
+                android:layout_width="56dp"
+                android:layout_centerVertical="true"
+                android:background="@color/transparent"
+                android:scaleType="centerInside"
+                android:layout_height="56dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/iransansbold"
+                android:text="گزارش سرجمع"
+                android:textColor="@color/dark"
+                android:textSize="@dimen/medium_titre" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rtl_date_picker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="13dp"
+            android:layout_marginRight="13dp"
+            android:layout_marginTop="23dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/top_rtl"
+            android:layout_alignParentTop="true">
+
+            <RelativeLayout
+                android:id="@+id/btn_start_date"
+                android:layout_width="160dp"
+                android:layout_height="50dp"
+                android:layout_alignParentRight="true"
+                android:background="@color/back_gray">
+
+                <TextView
+                    android:id="@+id/txt_start_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/iransansbold"
+                    android:text="تاریخ شروع"
+                    android:textColor="@color/pale_purple_two"
+                    android:textSize="@dimen/mini" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:src="@drawable/calendar_1" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/btn_end_date"
+                android:layout_width="160dp"
+                android:layout_height="50dp"
+                android:layout_alignParentLeft="true"
+                android:background="@color/back_gray">
+
+                <TextView
+                    android:id="@+id/txt_end_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/iransansbold"
+                    android:text="تاریخ پایان"
+                    android:textColor="@color/pale_purple_two"
+                    android:textSize="@dimen/mini" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="4dp"
+                    android:src="@drawable/calendar_1" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+        <ScrollView
+            android:padding="23dp"
+            android:background="@color/gray"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rtl_date_picker"
+            app:layout_constraintBottom_toTopOf="@id/btn_print_receipt"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layoutDirection="rtl"
+                    android:visibility="gone"
+                    android:id="@+id/lnr_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:background="@drawable/white_left_radius_background"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:background="@color/colorAccent"
+                            android:layout_width="4dp"
+                            android:layout_height="match_parent"/>
+
+                        <LinearLayout
+                            android:padding="20dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="right">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/titre"
+                                android:fontFamily="@font/iransansbold"
+                                android:textColor="@color/dark"
+                                android:text="خرید" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginTop="20dp"
+                                android:background="@color/cloudy_blue"/>
+
+
+                            <LinearLayout
+                                android:layout_marginTop="20dp"
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:fontFamily="@font/iransansbold"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="@dimen/title"
+                                    android:textColor="@color/blue_grey"
+                                    android:gravity="end"
+                                    android:text="تعداد موفق :"
+                                    />
+
+                                <TextView
+                                    android:id="@+id/success_buy"
+                                    android:layout_marginRight="15dp"
+                                    android:fontFamily="@font/iransansbold"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="@dimen/title"
+                                    android:textColor="@color/slate"
+                                    android:text="0" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_marginTop="20dp"
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:fontFamily="@font/iransansbold"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="@dimen/title"
+                                    android:textColor="@color/blue_grey"
+                                    android:gravity="end"
+                                    android:text="مجموع پرداخت (ریال) :"
+                                    />
+
+                                <TextView
+                                    android:id="@+id/sum_buy"
+                                    android:layout_marginRight="15dp"
+                                    android:fontFamily="@font/iransansbold"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="@dimen/title"
+                                    android:textColor="@color/slate"
+                                    android:text="0" />
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/white_left_radius_background"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:background="@color/colorAccent"
+                            android:layout_width="4dp"
+                            android:layout_height="match_parent"/>
+
+                        <LinearLayout
+                            android:padding="20dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="right">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/titre"
+                                android:fontFamily="@font/iransansbold"
+                                android:textColor="@color/dark"
+                                android:text="قبض" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginTop="20dp"
+                                android:background="@color/cloudy_blue"/>
+
+
+                            <LinearLayout
+                                android:layout_marginTop="20dp"
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:fontFamily="@font/iransansbold"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="@dimen/title"
+                                    android:textColor="@color/blue_grey"
+                                    android:gravity="end"
+                                    android:text="تعداد موفق :"
+                                    />
+
+                                <TextView
+                                    android:id="@+id/success_bill"
+                                    android:layout_marginRight="15dp"
+                                    android:fontFamily="@font/iransansbold"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="@dimen/title"
+                                    android:textColor="@color/slate"
+                                    android:text="0" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_marginTop="20dp"
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:fontFamily="@font/iransansbold"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="@dimen/title"
+                                    android:textColor="@color/blue_grey"
+                                    android:gravity="end"
+                                    android:text="مجموع پرداخت (ریال) :"
+                                    />
+
+                                <TextView
+                                    android:id="@+id/sum_bill"
+                                    android:layout_marginRight="15dp"
+                                    android:fontFamily="@font/iransansbold"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="@dimen/title"
+                                    android:textColor="@color/slate"
+                                    android:text="0" />
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/white_left_radius_background"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:background="@color/colorAccent"
+                            android:layout_width="4dp"
+                            android:layout_height="match_parent"/>
+
+                        <LinearLayout
+                            android:padding="20dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="right">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/titre"
+                                android:fontFamily="@font/iransansbold"
+                                android:textColor="@color/dark"
+                                android:text="شارژ" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginTop="20dp"
+                                android:background="@color/cloudy_blue"/>
+
+
+                            <LinearLayout
+                                android:layout_marginTop="20dp"
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:fontFamily="@font/iransansbold"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="@dimen/title"
+                                    android:textColor="@color/blue_grey"
+                                    android:gravity="end"
+                                    android:text="تعداد موفق :"
+                                    />
+
+                                <TextView
+                                    android:id="@+id/success_charge"
+                                    android:layout_marginRight="15dp"
+                                    android:fontFamily="@font/iransansbold"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="@dimen/title"
+                                    android:textColor="@color/slate"
+                                    android:text="0" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_marginTop="20dp"
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:fontFamily="@font/iransansbold"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="@dimen/title"
+                                    android:textColor="@color/blue_grey"
+                                    android:gravity="end"
+                                    android:text="مجموع پرداخت (ریال) :"
+                                    />
+
+                                <TextView
+                                    android:id="@+id/sum_charge"
+                                    android:layout_marginRight="15dp"
+                                    android:fontFamily="@font/iransansbold"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="@dimen/title"
+                                    android:textColor="@color/slate"
+                                    android:text="0" />
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/white_left_radius_background"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:background="@color/colorAccent"
+                            android:layout_width="4dp"
+                            android:layout_height="match_parent"/>
+
+                        <LinearLayout
+                            android:padding="20dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="right">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/titre"
+                                android:fontFamily="@font/iransansbold"
+                                android:textColor="@color/dark"
+                                android:text="شارژ مستقیم" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginTop="20dp"
+                                android:background="@color/cloudy_blue"/>
+
+
+                            <LinearLayout
+                                android:layout_marginTop="20dp"
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:fontFamily="@font/iransansbold"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="@dimen/title"
+                                    android:textColor="@color/blue_grey"
+                                    android:gravity="end"
+                                    android:text="تعداد موفق :"
+                                    />
+
+                                <TextView
+                                    android:id="@+id/success_topup"
+                                    android:layout_marginRight="15dp"
+                                    android:fontFamily="@font/iransansbold"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="@dimen/title"
+                                    android:textColor="@color/slate"
+                                    android:text="0" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_marginTop="20dp"
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:fontFamily="@font/iransansbold"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="@dimen/title"
+                                    android:textColor="@color/blue_grey"
+                                    android:gravity="end"
+                                    android:text="مجموع پرداخت (ریال) :"
+                                    />
+
+                                <TextView
+                                    android:id="@+id/sum_topup"
+                                    android:layout_marginRight="15dp"
+                                    android:fontFamily="@font/iransansbold"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="@dimen/title"
+                                    android:textColor="@color/slate"
+                                    android:text="0" />
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <TextView
+            android:id="@+id/txt_empty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/iransansbold"
+            android:gravity="center"
+            android:text="لطفا تاریخ شروع و پایان را انتخاب کنید"
+            android:textColor="@color/black"
+            android:textSize="@dimen/title"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_print_receipt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_print"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

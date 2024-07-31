@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.topkishmopix.peak.charge.ChargeViewModel" />
+    </data>
+
+    <FrameLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".buy.view.AmountFragment">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@color/back_gray">
+
+            <ImageButton
+                android:id="@+id/back"
+                android:src="@drawable/ic_back"
+                android:layout_alignParentLeft="true"
+                android:layout_width="56dp"
+                android:layout_centerVertical="true"
+                android:background="@color/transparent"
+                android:scaleType="centerInside"
+                android:layout_height="56dp"/>
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_marginRight="18dp"
+                android:fontFamily="@font/iransansbold"
+                android:text="شارژ موبایل"
+                android:textColor="@color/dark"
+                android:textSize="@dimen/medium_titre" />
+
+            <TextView
+                android:id="@+id/subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/back"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="18dp"
+                android:fontFamily="@font/iransansbold"
+                android:text="@{viewModel.isTopUp? @string/enter_phone : @string/enter_amount_and_operator}"
+                android:textColor="@color/slate"
+                android:textSize="@dimen/titre" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="150dp">
+
+
+            <LinearLayout
+                android:id="@+id/top"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="19dp"
+                android:layout_marginRight="19dp"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:background="?android:attr/selectableItemBackground"
+                    android:onClick="@{() -> viewModel.onTabClicked(false)}"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/iransansbold"
+                        android:gravity="center"
+                        android:text="شارژ عادی"
+                        android:textColor="@{viewModel.isTopUp? @color/slate : @color/dark}"
+                        android:textSize="@dimen/titre" />
+
+                    <TextView
+                        android:visibility="@{viewModel.isTopUp? View.GONE : View.VISIBLE}"
+                        android:layout_alignParentBottom="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:background="@drawable/yellow_background"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:background="?android:attr/selectableItemBackground"
+                    android:onClick="@{() -> viewModel.onTabClicked(true)}"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="شارژ مستقیم"
+                        android:textColor="@{viewModel.isTopUp? @color/dark : @color/slate}"
+                        android:gravity="center"
+                        android:fontFamily="@font/iransansbold"
+                        android:textSize="@dimen/titre"/>
+
+                    <TextView
+                        android:visibility="@{viewModel.isTopUp? View.VISIBLE : View.GONE}"
+                        android:layout_alignParentBottom="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:background="@drawable/yellow_background"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/top"
+                android:layout_marginLeft="19dp"
+                android:layout_marginRight="19dp"
+                android:layout_marginTop="30dp">
+
+                <LinearLayout
+                    android:visibility="@{viewModel.isTopUp? View.VISIBLE : View.GONE}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <FrameLayout
+                        android:background="@drawable/edittext_background"
+                        android:layout_width="match_parent"
+                        android:layout_height="53dp"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp">
+
+                        <EditText
+                            android:textDirection="ltr"
+                            android:singleLine="true"
+                            android:fontFamily="@font/iransansbold"
+                            android:gravity="center"
+                            android:background="@color/transparent"
+                            android:id="@+id/edt_phone"
+                            android:maxLength="11"
+                            android:textIsSelectable="true"
+                            android:text="@={viewModel.phone}"
+                            android:onTextChanged="@{(text, start, before, count) -> viewModel.onEdittextChanged(text)}"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="شماره تلفن همراه"
+                            android:inputType="number" />
+
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/amount_topup"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/edittext_background"
+                        android:layout_width="match_parent"
+                        android:layout_height="53dp"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp">
+
+                        <TextView
+                            android:id="@+id/txt_topup_amount"
+                            android:fontFamily="@font/iransansbold"
+                            android:gravity="center"
+                            android:textSize="@dimen/title"
+                            android:textColor="@color/dark"
+                            android:background="@color/transparent"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="مبلغ شارژ" />
+
+                        <ImageView
+                            android:layout_gravity="left|center_vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_marginTop="15dp"
+                        android:textSize="@dimen/content"
+                        android:fontFamily="@font/iransansbold"
+                        android:textColor="@color/black"
+                        android:text="اپراتور(اگر ترابرد کرده اید تغییر دهید)"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_marginRight="5dp"
+                            android:src="@{viewModel.isMci? @drawable/hamrah_aval : @drawable/hamrah_aval_2}"
+                            android:layout_width="wrap_content"
+                            android:onClick="@{() -> viewModel.isMciTopUp()}"
+                            android:layout_height="wrap_content" />
+
+                        <ImageView
+                            android:layout_marginRight="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="@{() -> viewModel.isMtnTopUp()}"
+                            android:src="@{viewModel.isMtn? @drawable/irancel : @drawable/irancell_2}" />
+
+                        <ImageView
+                            android:layout_marginRight="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="@{() -> viewModel.isRightelTopUp()}"
+                            android:src="@{viewModel.isRightel? @drawable/rightel : @drawable/rightel_2}" />
+
+                        <ImageView
+                            android:visibility="gone"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="@{() -> viewModel.isTaliaTopUp()}"
+                            android:src="@{viewModel.isTalia? @drawable/talia : @drawable/talia_2}" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:visibility="@{viewModel.isTopUp? View.GONE : View.VISIBLE}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <FrameLayout
+                        android:id="@+id/amount_code"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/edittext_background"
+                        android:layout_width="match_parent"
+                        android:layout_height="53dp"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp">
+
+                        <TextView
+                            android:id="@+id/txt_code_amount"
+                            android:fontFamily="@font/iransansbold"
+                            android:gravity="center"
+                            android:textSize="@dimen/title"
+                            android:textColor="@color/dark"
+                            android:background="@color/transparent"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="مبلغ شارژ" />
+
+                        <ImageView
+                            android:layout_gravity="left|center_vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/iransansbold"
+                        android:textSize="@dimen/title"
+                        android:gravity="center"
+                        android:text="انتخاب اپراتور"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <LinearLayout
+                        android:layout_marginTop="20dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_marginRight="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@{viewModel.isMciChargeCode? @drawable/hamrah_aval : @drawable/hamrah_aval_2}"
+                            android:onClick="@{() -> viewModel.toggleChargeCode(1)}"
+                            />
+
+                        <ImageView
+                            android:src="@{viewModel.isMtnChargeCode? @drawable/irancel : @drawable/irancell_2}"
+                            android:onClick="@{() -> viewModel.toggleChargeCode(2)}"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <ImageView
+                            android:layout_marginRight="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="@{() -> viewModel.toggleChargeCode(3)}"
+                            android:src="@{viewModel.isRightelChargeCode? @drawable/rightel : @drawable/rightel_2}" />
+
+                        <ImageView
+                            android:visibility="gone"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="@{() -> viewModel.toggleChargeCode(4)}"
+                            android:src="@{viewModel.isTaliaChargeCode? @drawable/talia : @drawable/talia_2}" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:padding="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_alignParentBottom="true">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_marginEnd="5dp"
+                    android:fontFamily="@font/iransansbold"
+                    android:textSize="@dimen/title"
+                    android:id="@+id/cancel"
+                    android:backgroundTint="@color/cansel"
+                    android:textColor="@color/white"
+                    android:text="لغو"
+                    android:focusable="false"
+                    android:layout_weight="0.35"/>
+
+                <Button
+                    android:id="@+id/confirm"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:fontFamily="@font/iransansbold"
+                    android:textSize="@dimen/title"
+                    android:textColor="@color/white"
+                    android:layout_marginStart="5dp"
+                    android:backgroundTint="@color/green"
+                    android:text="تایید و ادامه"
+                    android:paddingLeft="20dp"
+                    android:layout_weight="0.65"/>
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </FrameLayout>
+</layout>

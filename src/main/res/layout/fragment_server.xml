@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.topkishmopix.peak.setting.management.viewmodel.ServerViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:paddingRight="20dp"
+            android:id="@+id/top_rtl"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:background="@color/back_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/back"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:background="@color/transparent"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/iransansbold"
+                android:text="سرور"
+                android:textColor="@color/dark"
+                android:textSize="@dimen/medium_titre" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:background="@color/gray"
+            app:layout_constraintTop_toBottomOf="@id/top_rtl"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/title_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/iransansbold"
+                android:gravity="right"
+                android:text="Ip"
+                android:textColor="@color/slate"
+                android:textSize="@dimen/title" />
+
+            <FrameLayout
+                android:id="@+id/ip"
+                android:layout_below="@id/title_1"
+                android:layout_width="match_parent"
+                android:layout_height="53dp"
+                android:layout_marginLeft="19dp"
+                android:layout_marginRight="19dp"
+                android:background="@drawable/edittext_background"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/transparent"
+                    android:fontFamily="@font/iransansbold"
+                    android:gravity="center"
+                    android:hint="آدرس سرور سوئیچ"
+                    android:singleLine="true"
+                    android:text="@={viewModel.observableIp}" />
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/title_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ip"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/iransansbold"
+                android:gravity="right"
+                android:text="Port"
+                android:textColor="@color/slate"
+                android:textSize="@dimen/title" />
+
+            <FrameLayout
+                android:id="@+id/port"
+                android:layout_width="match_parent"
+                android:layout_height="53dp"
+                android:layout_below="@id/title_2"
+                android:layout_marginLeft="19dp"
+                android:layout_marginRight="19dp"
+                android:background="@drawable/edittext_background"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/transparent"
+                    android:fontFamily="@font/iransansbold"
+                    android:gravity="center"
+                    android:hint="آدرس پورت سوئیچ"
+                    android:inputType="number"
+                    android:maxLength="4"
+                    android:singleLine="true"
+                    android:text="@={viewModel.observablePort}" />
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/title_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/port"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/iransansbold"
+                android:gravity="right"
+                android:text="Nii"
+                android:textColor="@color/slate"
+                android:textSize="@dimen/title" />
+
+            <FrameLayout
+                android:id="@+id/nii"
+                android:layout_width="match_parent"
+                android:layout_height="53dp"
+                android:layout_below="@id/title_3"
+                android:layout_marginLeft="19dp"
+                android:layout_marginRight="19dp"
+                android:background="@drawable/edittext_background"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/transparent"
+                    android:fontFamily="@font/iransansbold"
+                    android:gravity="center"
+                    android:hint="Nii"
+                    android:inputType="number"
+                    android:maxLength="4"
+                    android:singleLine="true"
+                    android:text="@={viewModel.observableNii}" />
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:padding="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/nii">
+
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_marginEnd="5dp"
+                    android:fontFamily="@font/iransansbold"
+                    android:textSize="@dimen/title"
+                    android:id="@+id/cancel"
+                    android:backgroundTint="@color/cansel"
+                    android:textColor="@color/white"
+                    android:text="لغو"
+                    android:layout_weight="0.4"/>
+
+                <Button
+                    android:id="@+id/confirm"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:fontFamily="@font/iransansbold"
+                    android:textSize="@dimen/title"
+                    android:textColor="@color/white"
+                    android:onClick="@{() -> viewModel.setOnConfirmClicked()}"
+                    android:layout_marginStart="5dp"
+                    android:backgroundTint="@color/green"
+                    android:text="ذخیره"
+                    android:paddingLeft="20dp"
+                    android:layout_weight="0.6"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

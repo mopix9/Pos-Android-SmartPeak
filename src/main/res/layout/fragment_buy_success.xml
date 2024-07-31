@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.topkishmopix.peak.buy.viewmodel.BuySuccessViewModel" />
+    </data>
+
+    <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/back_gray"
+        android:orientation="vertical"
+        tools:context=".buy.view.AmountFragment">
+
+        <RelativeLayout
+            android:paddingRight="20dp"
+            android:id="@+id/top_rtl"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:background="@color/back_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/back"
+                android:src="@drawable/ic_back"
+                android:layout_alignParentLeft="true"
+                android:layout_width="56dp"
+                android:layout_centerVertical="true"
+                android:background="@color/transparent"
+                android:scaleType="centerInside"
+                android:layout_height="56dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/iransansbold"
+                android:text="لطفا رسید خود را بردارید"
+                android:textColor="@color/dark"
+                android:textSize="@dimen/medium_titre" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:background="@color/gray"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="20dp">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@id/bottom"
+                android:background="@drawable/white_background">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/success_icon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="13dp"
+                        android:fontFamily="@font/iransansbold"
+                        android:gravity="center_horizontal"
+                        android:text="تراکنش با موفقیت انجام شد"
+                        android:textColor="@color/dark"
+                        android:textSize="@dimen/titre" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="18dp"
+                        android:text="------------------------------------------------------------------"
+                        android:textColor="@color/cloudy_blue" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:fontFamily="@font/iransansbold"
+                            android:text="زمان تراکنش:"
+                            android:textColor="@color/blue_grey"
+                            android:textSize="@dimen/content" />
+
+                        <TextView
+                            android:id="@+id/txtDateTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:fontFamily="@font/iransansbold"
+                            android:text=""
+                            android:textColor="@color/slate"
+                            android:textSize="@dimen/content" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:fontFamily="@font/iransansbold"
+                            android:text="@string/buy_amount"
+                            android:textColor="@color/blue_grey"
+                            android:textSize="@dimen/content" />
+
+                        <TextView
+                            android:id="@+id/txtAmount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:fontFamily="@font/iransansbold"
+                            android:text=""
+                            android:textColor="@color/slate"
+                            android:textSize="@dimen/content" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp">
+
+                        <TextView
+                            android:id="@+id/txtBankName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:fontFamily="@font/iransansbold"
+                            android:text="@string/bank_name"
+                            android:textColor="@color/blue_grey"
+                            android:textSize="@dimen/content" />
+
+                        <TextView
+                            android:id="@+id/txtCardNumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:fontFamily="@font/iransansbold"
+                            android:text=""
+                            android:textColor="@color/slate"
+                            android:textSize="@dimen/content" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:fontFamily="@font/iransansbold"
+                            android:text="@string/tracking_number2"
+                            android:textColor="@color/blue_grey"
+                            android:textSize="@dimen/content" />
+
+                        <TextView
+                            android:id="@+id/txtTrackingNumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:fontFamily="@font/iransansbold"
+                            android:text=""
+                            android:textColor="@color/slate"
+                            android:textSize="@dimen/content" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp">
+
+                        <TextView
+                            android:id="@+id/txtReferenceNumberc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:fontFamily="@font/iransansbold"
+                            android:text="@string/reference_number2"
+                            android:textColor="@color/blue_grey"
+                            android:textSize="@dimen/content" />
+
+                        <TextView
+                            android:id="@+id/txtReferenceNumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:fontFamily="@font/iransansbold"
+                            android:text=""
+                            android:textColor="@color/slate"
+                            android:textSize="@dimen/content" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/txt_timer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/iransansbold"
+                        android:gravity="center"
+                        android:textColor="@color/blue_gray"
+                        android:textSize="@dimen/title" />
+
+                    <TextView
+                        android:id="@+id/recivedAmount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="99dp"
+                        android:fontFamily="@font/iransansbold"
+                        android:gravity="center"
+                        android:textColor="@color/blue_gray"
+                        android:textSize="@dimen/title"
+                         />
+
+                </LinearLayout>
+
+            </ScrollView>
+
+
+            <LinearLayout
+                android:id="@+id/bottom"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/cancel"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="0.4"
+                    android:backgroundTint="@color/cansel"
+                    android:fontFamily="@font/iransansbold"
+                    android:text="بازگشت"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/title" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight="0.6"
+                    android:fontFamily="@font/iransansbold"
+                    android:textSize="@dimen/title"
+                    android:id="@+id/seller_receipt"
+                    android:backgroundTint="@color/green"
+                    android:textColor="@color/white"
+                    android:text="چاپ رسید فروشنده"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>

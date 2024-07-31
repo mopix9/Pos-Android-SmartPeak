@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.topkishmopix.peak.setting.shop.viewmodel.CodeRequestViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/back_gray"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/top_rtl"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:background="@color/back_gray"
+            android:paddingRight="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/back"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:background="@color/transparent"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/iransansbold"
+                android:text="تنظیمات شیفت"
+                android:textColor="@color/dark"
+                android:textSize="@dimen/medium_titre" />
+
+
+        </RelativeLayout>
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/gray"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/top_rtl">
+
+            <LinearLayout
+                android:id="@+id/shift_frag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="23dp">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/get_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp">
+
+
+                    <TextView
+                        android:id="@+id/baner_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/iransansbold"
+                        android:gravity="center"
+                        android:text="لطفا کد صندوق دار، را وارد نمائید : "
+                        android:textColor="@color/slate"
+                        android:textSize="22sp" />
+
+
+                    <FrameLayout
+                        android:id="@+id/fram_edit"
+                        android:layout_width="match_parent"
+                        android:layout_height="53dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginRight="16dp"
+                        android:background="@drawable/edittext_background"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp">
+
+                        <EditText
+                            android:id="@+id/code"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/transparent"
+                            android:fontFamily="@font/iransansbold"
+                            android:gravity="center"
+                            android:hint="کد "
+                            android:inputType="number"
+                            android:maxLength="16"
+                            android:singleLine="true"
+                            android:text="@={viewModel.codeRequest}"
+                            android:textDirection="ltr" />
+
+
+                    </FrameLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/button_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp">
+
+                    <LinearLayout
+                        android:id="@+id/button"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:padding="15dp">
+
+
+                        <Button
+                            android:id="@+id/disable_shift"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_weight="1"
+                            android:backgroundTint="@color/red"
+                            android:fontFamily="@font/iransansbold"
+                            android:text="پایان شیفت"
+                            android:textColor="@color/back_gray"
+                            android:textSize="@dimen/titre" />
+
+                        <Button
+                            android:id="@+id/enable_shift"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_weight="1"
+                            android:backgroundTint="@color/green"
+                            android:fontFamily="@font/iransansbold"
+                            android:onClick="@{() -> viewModel.setOnConfirmClicked()}"
+                            android:text="شروع شیفت"
+                            android:textColor="@color/back_gray"
+                            android:textSize="@dimen/titre" />
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right|center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/name_code"
+                        android:layout_width="0dp"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/iransansbold"
+                        android:gravity="right"
+                        android:text="غیر فعال "
+                        android:textColor="@color/slate"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/code_txt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:fontFamily="@font/iransansbold"
+                        android:gravity="center"
+                        android:textColor="@color/slate"
+                        android:textSize="18sp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/current_user"
+                        android:layout_width="0dp"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/iransansbold"
+                        android:gravity="center"
+                        android:text="صندوق دار جاری :"
+                        android:textColor="@color/slate"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <!--  <androidx.cardview.widget.CardView
+                      android:id="@+id/start"
+                      android:layout_width="match_parent"
+                      android:layout_height="80dp"
+                      android:background="@drawable/white_background"
+                      android:orientation="horizontal"
+                      app:cardCornerRadius="5dp">
+
+                      <LinearLayout
+                          android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:gravity="center"
+                          android:orientation="horizontal"
+                          android:padding="10dp">-->
+
+
+                <Button
+                    android:id="@+id/exit"
+                    android:layout_width="200dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="5dp"
+                    android:backgroundTint="@color/cansel"
+                    android:fontFamily="@font/iransansbold"
+                    android:text="لغو"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/title"
+                    android:visibility="gone" />
+
+                <!--    <Button
+                        android:id="@+id/next_level"
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_weight="0.6"
+                        android:backgroundTint="@color/green"
+                        android:fontFamily="@font/iransansbold"
+                        android:onClick="@{() -> viewModel.setOnConfirmClicked()}"
+                        android:paddingStart="20dp"
+                        android:text="@string/nextLevel"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/title" />-->
+
+
+                <!--    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+-->
+
+                <!--     <androidx.cardview.widget.CardView
+                         android:id="@+id/start_sw"
+                         android:layout_width="match_parent"
+                         android:layout_height="80dp"
+                         android:background="@drawable/white_background"
+                         android:orientation="horizontal"
+                         app:cardCornerRadius="5dp">
+
+                         <LinearLayout
+                             android:layout_width="match_parent"
+                             android:layout_height="match_parent"
+                             android:gravity="right|center_vertical"
+                             android:orientation="horizontal"
+                             android:padding="10dp">
+
+
+
+                         <androidx.appcompat.widget.SwitchCompat
+                                 android:id="@+id/enable_shift_sw"
+                                 android:layout_width="0dp"
+                                 android:layout_weight="1"
+                                 android:layout_height="wrap_content"
+                                 android:layout_marginStart="10dp"
+                                 android:fontFamily="@font/iransansbold"
+                                 android:text="شروع شیفت"
+                                 android:textSize="20sp" />
+
+                            <androidx.appcompat.widget.SwitchCompat
+                                 android:id="@+id/disable_shift_sw"
+                                 android:layout_width="0dp"
+                                 android:layout_weight="1"
+                                 android:layout_height="wrap_content"
+                                 android:layout_marginStart="10dp"
+                                 android:fontFamily="@font/iransansbold"
+                                 android:text="پایان شیفت"
+                                 android:textSize="20sp" />
+
+                         </LinearLayout>
+
+                     </androidx.cardview.widget.CardView>
+     -->
+
+
+                <EditText
+                    android:id="@+id/shift_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="300dp" />
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+    </LinearLayout>
+</layout>

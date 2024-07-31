@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/swipeFragment">
+
+    <fragment
+        android:id="@+id/swipeFragment"
+        android:name="com.topkishmopix.peak.main.view.view.SwipeFragment"
+        android:label="SwipeFragment" >
+
+        <action
+            android:id="@+id/action_swipeFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_swipeFragment_to_buyOptionsFragment"
+            app:destination="@id/buyOptionsFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/failFragment"
+        android:name="com.topkishmopix.peak.main.view.view.FailFragment"
+        android:label="FailFragment" >
+        <action
+            android:id="@+id/action_failFragment_to_swipeFragment"
+            app:popUpTo="@+id/swipeFragment"
+            app:popUpToInclusive="true"
+            app:destination="@id/swipeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.topkishmopix.peak.ns.setting.SettingsFragment"
+        android:label="SettingsFragment" >
+        <action
+            android:id="@+id/action_settingsFragment_to_passwordFragment"
+            app:destination="@id/passwordFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_swipeFragment"
+            app:destination="@id/swipeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/passwordFragment"
+        android:name="com.topkishmopix.peak.setting.PasswordFragment"
+        android:label="PasswordFragment" >
+        <action
+            android:id="@+id/action_passwordFragment_to_managementFragment"
+            app:destination="@id/managementFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/configurationFragment"
+        android:name="com.topkishmopix.peak.setting.management.ConfigurationFragment"
+        android:label="ConfigurationFragment" >
+        <action
+            android:id="@+id/action_configurationFragment_to_getInfoFragment"
+            app:destination="@id/getInfoFragment" />
+        <action
+            android:id="@+id/action_configurationFragment_to_logonFragment"
+            app:destination="@id/logonFragment4" />
+    </fragment>
+    <fragment
+        android:id="@+id/terminalFragment"
+        android:name="com.topkishmopix.peak.setting.management.TerminalFragment"
+        android:label="TerminalFragment" />
+    <fragment
+        android:id="@+id/merchantPasswordFragment"
+        android:name="com.topkishmopix.peak.setting.management.MerchantPasswordFragment"
+        android:label="MerchantPasswordFragment" />
+    <fragment
+        android:id="@+id/connectivityFragment"
+        android:name="com.topkishmopix.peak.setting.management.ConnectivityFragment"
+        android:label="ConnectivityFragment" >
+        <action
+            android:id="@+id/action_connectivityFragment_to_serverFragment"
+            app:destination="@id/serverFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/managementFragment"
+        android:name="com.topkishmopix.peak.setting.management.ManagementFragment"
+        android:label="ManagementFragment" >
+        <action
+            android:id="@+id/action_managementFragment_to_connectivityFragment"
+            app:destination="@id/connectivityFragment" />
+        <action
+            android:id="@+id/action_managementFragment_to_merchantPasswordFragment"
+            app:destination="@id/merchantPasswordFragment" />
+        <action
+            android:id="@+id/action_managementFragment_to_terminalFragment"
+            app:destination="@id/terminalFragment" />
+        <action
+            android:id="@+id/action_managementFragment_to_configurationFragment"
+            app:destination="@id/configurationFragment" />
+        <action
+            android:id="@+id/action_managementFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/getInfoFragment"
+        android:name="com.topkishmopix.peak.setting.shop.GetInfoFragment"
+        android:label="GetInfoFragment" />
+    <fragment
+        android:id="@+id/serverFragment"
+        android:name="com.topkishmopix.peak.setting.management.ServerFragment"
+        android:label="ServerFragment" />
+    <fragment
+        android:id="@+id/buyOptionsFragment"
+        android:name="com.topkishmopix.peak.main.view.view.BuyOptionsFragment"
+        android:label="BuyOptionsFragment" >
+        <action
+            android:id="@+id/action_buyOptionsFragment_to_swipeFragment"
+            app:destination="@id/swipeFragment" />
+        <action
+            android:id="@+id/action_buyOptionsFragment_to_buyFragment"
+            app:destination="@id/buyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/buyFragment"
+        android:name="com.topkishmopix.peak.buy.BuyFragment"
+        android:label="BuyFragment" >
+        <action
+            android:id="@+id/action_buyFragment_to_swipeFragment"
+            app:destination="@id/swipeFragment" />
+        <action
+            android:id="@+id/action_buyFragment_to_failFragment"
+            app:destination="@id/failFragment" />
+        <action
+            android:id="@+id/action_buyFragment_to_buySuccessFragment"
+            app:destination="@id/buySuccessFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/buySuccessFragment"
+        android:name="com.topkishmopix.peak.buy.BuySuccessFragment"
+        android:label="BuySuccessFragment" >
+        <action
+            android:id="@+id/action_buySuccessFragment_to_swipeFragment"
+            app:destination="@id/swipeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/logonFragment4"
+        android:name="com.topkishmopix.peak.setting.management.LogonFragment"
+        android:label="LogonFragment" />
+
+
+</navigation>

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.topkishmopix.peak.bill.viewmodel.BillViewModel" />
+    </data>
+
+    <FrameLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".buy.view.AmountFragment">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@color/back_gray">
+
+            <ImageButton
+                android:id="@+id/back"
+                android:src="@drawable/ic_back"
+                android:layout_alignParentLeft="true"
+                android:layout_width="56dp"
+                android:layout_centerVertical="true"
+                android:background="@color/transparent"
+                android:scaleType="centerInside"
+                android:layout_height="56dp"/>
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_marginRight="18dp"
+                android:fontFamily="@font/iransansbold"
+                android:text="پرداخت قبض"
+                android:textColor="@color/dark"
+                android:textSize="@dimen/medium_titre" />
+
+            <TextView
+                android:id="@+id/subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/back"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="18dp"
+                android:fontFamily="@font/iransansbold"
+                android:text="وارد کردن اطلاعات قبض"
+                android:textColor="@color/slate"
+                android:textSize="@dimen/titre" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="150dp">
+
+            <LinearLayout
+                android:layout_marginLeft="19dp"
+                android:layout_marginRight="19dp"
+                android:layout_marginTop="40dp"
+                android:layout_alignParentTop="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:background="@drawable/edittext_background"
+                    android:layout_width="match_parent"
+                    android:layout_height="53dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp">
+
+                    <EditText
+                        android:textDirection="ltr"
+                        android:singleLine="true"
+                        android:gravity="center"
+                        android:text="@={viewModel.billId}"
+                        android:fontFamily="@font/iransansbold"
+                        android:background="@color/transparent"
+                        android:id="@+id/edt_bill_id"
+                        android:maxLength="13"
+                        android:inputType="number"
+                        android:textIsSelectable="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="شناسه قبض">
+                    </EditText>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/edittext_background"
+                    android:layout_width="match_parent"
+                    android:layout_height="53dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp">
+
+                    <EditText
+                        android:textDirection="ltr"
+                        android:fontFamily="@font/iransansbold"
+                        android:gravity="center"
+                        android:text="@={viewModel.payId}"
+                        android:background="@color/transparent"
+                        android:id="@+id/edt_pay_id"
+                        android:textIsSelectable="true"
+                        android:maxLength="13"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="شناسه پرداخت"
+                        android:inputType="number" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="@font/iransansbold"
+                    android:textSize="@dimen/title"
+                    android:gravity="right"
+                    android:text="استفاده از بارکد خوان :"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <Button
+                    android:id="@+id/scanner"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:layout_height="60dp"
+                    android:fontFamily="@font/iransansbold"
+                    android:textSize="@dimen/title"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/dark_sky_blue"
+                    android:text="اسکن بارکد"
+                    android:paddingRight="20dp"
+                    android:focusable="false"
+                    android:layout_weight="0.65"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lnr_bottom"
+                android:padding="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_alignParentBottom="true">
+
+                <Button
+                    android:focusable="false"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_marginEnd="5dp"
+                    android:fontFamily="@font/iransansbold"
+                    android:textSize="@dimen/title"
+                    android:id="@+id/cancel"
+                    android:backgroundTint="@color/cansel"
+                    android:textColor="@color/white"
+                    android:text="لغو"
+                    android:layout_weight="0.35"/>
+
+                <Button
+                    android:id="@+id/confirm"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:onClick="@{() -> viewModel.setOnConfirmClicked()}"
+                    android:fontFamily="@font/iransansbold"
+                    android:textSize="@dimen/title"
+                    android:textColor="@color/white"
+                    android:layout_marginStart="5dp"
+                    android:backgroundTint="@color/green"
+                    android:text="تایید و ادامه"
+                    android:paddingLeft="20dp"
+                    android:layout_weight="0.65"/>
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </FrameLayout>
+</layout>
